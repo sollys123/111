@@ -163,7 +163,7 @@ const buildFallbackProvinceGeoJSON=(provinceName)=>({
 const makeDefaultEntry=(name)=>({
 
     title:name,totalVolume:'暂无数据',
-    marketVolumeDisplay:'暂无详细信息，点击编辑模式添加数据',
+    marketVolumeDisplay:'暂无详细数据',
     tags:[],details:[],notes:'',color:null
 });
 
@@ -1098,7 +1098,7 @@ const App=()=>{
                                         palette={currentPalette}
                                         min={freqRange.min} max={freqRange.max}
                                         unit="万"
-                                        label="月度调频市场份额"
+                                        label="年度调频市场份额"
                                         ticks={[
                                             {pos:'0%',text:`${freqRange.min}万元`},
                                             {pos:'33%',text:`${Math.round(freqRange.min+(freqRange.max-freqRange.min)/3)}万`},
@@ -1109,7 +1109,7 @@ const App=()=>{
                                     <div className="space-y-1.5">
                                         <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">潜在开放梯队</div>
                                         <div className="space-y-1">
-                                            {[{color:'#52525b',label:'第一梯队',desc:'华东核心省份'},{color:'#9ca3af',label:'第二梯队',desc:'中西部重点省'},{color:'#e5e7eb',label:'第三梯队',desc:'远期关注'}].map(t=>(
+                                            {[{color:'#52525b',label:'第一梯队',desc:'调频需求大省'},{color:'#9ca3af',label:'第二梯队',desc:'存在调频需求'},{color:'#e5e7eb',label:'第三梯队',desc:'缺乏需求'}].map(t=>(
                                                 <div key={t.label} className="flex items-center gap-2 py-1">
                                                     <div className="w-3 h-3 rounded" style={{backgroundColor:t.color}}/>
                                                     <span className="text-[11px] text-slate-600 font-medium">{t.label}</span>
@@ -1119,7 +1119,7 @@ const App=()=>{
                                         </div>
                                     </div>
                                     <div className="text-[10px] text-slate-400 bg-slate-50 rounded-lg p-2 border border-slate-100">
-                                        覆盖 {Object.keys(freqData).length} 省份 · 数据越深蓝色表示月度调频市场份额越大
+                                        覆盖 {Object.keys(freqData).length} 省份 · 数据越深蓝色表示年度调频市场份额越大
                                     </div>
                                     </>
                                 )}
